@@ -1,0 +1,1063 @@
+*
+    box-sizing: border-box
+    margin: 0
+    padding: 0
+
+    scrollbar-width: thin
+    scrollbar-color: #343435 #ffffff
+
+    /* Chrome, Edge, and Safari */
+    *::-webkit-scrollbar 
+        width: 13px
+    *::-webkit-scrollbar-track 
+        background: #fafafa
+    *::-webkit-scrollbar-thumb 
+        background-color: #343435
+        border-radius: 8px
+        border: 3px solid #fafafa
+    
+body
+	font-family: 'Jost', sans-serif
+	color: #fff
+	overflow-x: hidden
+	background: #000000
+	&.active
+		overflow: hidden
+
+#particles-js,
+#particles-js-2
+	canvas
+		position: absolute
+		top: 0
+		left: 0
+		bottom: 0
+		right: 0
+
+html
+    scroll-behavior: smooth
+    overflow-x: hidden
+a
+    text-decoration: none
+    color: inherit
+li
+    list-style: none
+.shadow
+    display: none
+    position: fixed
+    top: 0
+    left: 0
+    width: 100%
+    height: 100%
+    z-index: 10
+    background: rgba(0,0,0,.6)
+    backdrop-filter: blur(10px)
+    &.active
+        z-index: 10
+        display: block
+        
+.container
+    max-width: 1430px
+    width: 100%
+    margin: 0 auto
+    padding: 0 15px
+
+.nav_toggle
+	height: 30px
+	width: 50px
+	padding: 10px
+	z-index: 200
+	cursor: pointer
+	display: flex
+	justify-content: center
+	align-items: center
+.nav_toggle-item 
+    display: block
+    width: 100%
+    height: 2px
+    position: relative
+    background-color: #fff
+    transition: background .2s linear
+.nav_toggle-item:before, .nav_toggle-item:after 
+    content: ""
+    width: 100%
+    height: 2px
+    position: absolute
+    left: 0
+    background-color: #fff
+    z-index: 1
+    transition: transform .2s linear
+.nav_toggle-item:before 
+    top: -8px
+.nav_toggle-item:after 
+    bottom: -8px
+.nav_toggle.active 
+	.nav_toggle-item
+		background: transparent
+		&::before
+			transform-origin: left top
+			transform: rotate(45deg) translate3D(3px,-5px,0)
+		&::after
+			transform-origin: left bottom
+			transform: rotate(-45deg) translate3D(2px, 6px, 0)
+
+.lang
+	a
+		padding-right: 25px
+		font-weight: 500
+		color: #01E5E5!important
+	ul
+		li
+			a
+				color: #fff!important
+				&:hover
+					color: #01E5E5!important
+	&::before
+		pointer-events: none
+		position: absolute
+		content: ""
+		top: 3px
+		right: 2px
+		border: 1px solid #01E5E5
+		border-top: 0
+		border-left: 0
+		width: 10px
+		height: 10px
+		transform: rotate(45deg)
+.btn
+	cursor: pointer
+	border: 0
+	outline: none
+	display: table
+	padding: 19px 22px
+	font-weight: 500
+	font-size: 14px
+	line-height: 150%
+	text-transform: uppercase
+
+	color: #000000
+	background: #FFFFFF
+	-webkit-backdrop-filter: blur(2.3px)
+	backdrop-filter: blur(2.3px)
+	border-radius: 10px
+	text-align: center
+
+	transition: all .2s ease
+	&:hover,
+	&:focus
+		background-color: #01FFFF
+	&.green
+		background: #01E5E5
+		&:hover,
+		&:focus
+			background-color: #01A4FF
+.uppertitle
+	font-weight: bold
+	font-size: 20px
+	line-height: 130%
+	text-transform: uppercase
+
+	color: #FFFFFF
+	margin-bottom: 7px
+
+.undertext
+	font-style: italic
+	font-weight: 300
+	font-size: 14px
+	line-height: 150%
+
+	color: #FFFFFF
+
+.uppertext
+	font-size: 18px
+	line-height: 150%
+
+	color: #FFFFFF
+
+.title
+	font-weight: bold
+	font-size: 40px
+	line-height: 130%
+
+	text-transform: uppercase
+
+	color: #FFFFFF
+
+.text
+	font-size: 16px
+	line-height: 150%
+
+	color: #FFFFFF
+
+	opacity: 0.7
+
+.header_toggler
+	width: 20px
+	height: 20px
+	position: absolute
+	display: none
+	right: 0
+	top: 0
+	&::before
+		position: absolute
+		content: ""
+		top: 50%
+		left: 50%
+		width: 0
+		height: 0
+		border-style: solid
+		border-width: 5px 4px 0 4px
+		border-color: #fff transparent transparent transparent
+		transform: translate(-50%, -50%)
+
+
+
+/*header*/
+.header
+	position: fixed
+	padding: 30px 0 15px
+	top: 0
+	left: 0
+	width: 100%
+	z-index: 10
+	transition: all .2s ease
+	&.active
+		background: rgba(0,0,0,.9)
+		padding: 15px 0
+.header_info
+	display: flex
+	align-items: center
+.header_inner
+	display: flex
+	justify-content: space-between
+	align-items: center
+	.btn
+		padding: 10px
+		margin-right: 25px
+.nav
+	ul
+		display: flex
+		li
+			margin-right: 50px
+			position: relative
+			&:last-child
+				margin-right: 0
+			a
+				font-size: 18px
+				line-height: 130%
+
+				color: #FFFFFF	
+				padding-bottom: 5px
+				&:hover
+					color: #01E5E5
+			ul 
+				position: absolute
+				top: 100%
+				left: 0
+				display: block
+				width: max-content
+				background: rgba(0,0,0,.9)
+				z-index: 3
+				left: -9999px
+				visibility: hidden
+				padding: 15px
+				li
+					margin-bottom: 8px
+					&:last-child 
+						margin-bottom: 0
+			&:hover ul 
+				left: -15px
+				visibility: visible
+
+
+.burger_navigation
+	overflow: auto
+	padding: 85px 50px
+	position: fixed
+	top: 0
+	bottom: 0
+	right: 0
+	max-width: 655px
+	width: 100%
+	z-index: 100
+	visibility: hidden
+	transition: all .3s ease
+	transform: translateX(700px)
+	background-color: #000000 
+	display: flex
+	flex-direction: column
+	justify-content: center
+	&.active
+		transform: translateX(0)
+		visibility: visible
+	.btn
+		min-width: 210px
+		padding: 20px 10px
+.burger_nav
+	display: none
+.burger_title
+	font-weight: bold
+	font-size: 40px
+	line-height: 130%
+
+	text-transform: uppercase
+
+	color: #FFFFFF
+.burger_info
+	max-width: 400px
+	.uppertext
+		margin: 20px 0
+
+
+
+/*main*/
+.scroll_to
+	position: relative
+	display: table
+	writing-mode: vertical-lr
+	transform: scale(-1,-1)
+	img
+		transform: scale(-1,-1)
+.main
+	background: center/cover url("../img/main.png")  no-repeat
+	position: relative
+	&::before
+		position: absolute
+		content: ""
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background: linear-gradient(to bottom, transparent 90%, #000)
+		opacity: 0.85
+.video
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	object-fit: cover
+.main_inner
+	position: relative
+	z-index: 1
+	min-height: 100vh
+	display: flex
+	flex-direction: column
+	justify-content: center
+	align-items: start
+	padding: 120px 0 80px
+.main_title
+	max-width: 820px
+	font-weight: bold
+	font-size: 48px
+	line-height: 130%
+	text-transform: uppercase
+	margin-bottom: 35px
+	color: #FFFFFF
+.main_info
+	width: 100%
+	display: flex
+	justify-content: space-between
+.circle
+	width: 158px
+	height: 158px
+	position: relative
+	margin-left: auto
+	&:hover
+		.circle_text
+			color: #01E5E5
+	.circle_text
+		pointer-events: none
+		font-weight: 300
+		font-size: 12px
+		color: #FFFFFF
+
+		animation: rotateText 10s linear infinite
+		width: 100%
+		height: 100%
+
+		transition: all .2s ease
+		span
+			position: absolute
+			left: 50%
+			transform-origin: 0 79px
+	img
+		position: absolute
+		top: 50%
+		left: 50%
+		transform: translate(-50%, -50%)
+		cursor: pointer
+.main_slider
+	position: relative
+	margin-bottom: 30px
+	.main_title
+		margin-bottom: 0
+		padding-left: 4px
+	.swiper-slide
+		backface-visibility: hidden
+
+.main_left
+	padding-top: 45px
+	margin-right: 45px
+.main_social
+	display: table
+	margin-bottom: 40px
+	&:last-child
+		margin-bottom: 0
+.main_right	
+	width: calc(100% - 70px)
+.swiper-pagination
+	display: block
+	top: 50%
+	right: 0
+	bottom: initial!important
+	left: initial!important
+	width: auto!important
+	transform: translateY(-50%)
+	.swiper-pagination-bullet
+		display: table
+		width: 14px
+		height: 14px
+		border-radius: 50%
+		background: #fff
+		opacity: 1
+		margin-bottom: 30px!important
+		&:last-child
+			margin-bottom: 0!important
+	.swiper-pagination-bullet-active
+		background: #01FFFF
+
+
+@keyframes rotateText 
+	0%
+		transform: rotate(-360deg)
+	100%
+		transform: rotate(0deg)
+.main_loop
+	position: absolute
+	bottom: 60px
+	left: 0
+	width: 100%
+	display: flex
+	p
+		white-space: nowrap
+		will-change: transform
+		animation: marquee 7s linear infinite
+		animation-play-state: running
+
+@keyframes marquee 
+  0% 
+    transform: translateX(-40%)
+  100% 
+    transform: translateX(-140%)
+
+
+/*services*/
+.services
+	padding: 130px 0
+.services_inner
+	margin: 60px 0
+	display: flex
+	justify-content: space-between
+.services_item
+	width: 32%
+	min-height: 520px
+	position: relative
+	background-size: cover
+	background-position: center
+	padding: 30px 20px
+	overflow: hidden
+	display: flex
+	flex-direction: column
+	justify-content: flex-end
+
+	transition: all .2s ease
+	&::before
+		position: absolute
+		content: ""
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background: linear-gradient(0deg, #000000 50%, rgba(0, 0, 0, 0) 78.83%)
+		opacity: 0.85 
+		z-index: 1
+	ul
+		margin-top: 15px
+		li
+			font-size: 16px
+			line-height: 180%
+
+			color: #FFFFFF
+	&:hover
+		box-shadow: 0px 4px 55px rgba(255, 255, 255, 0.18)
+		.services_img
+			transform: scale(1.2)
+		.services_item_inner
+			transform: translateY(0)
+.services_img
+	position: absolute
+	top: 0
+	left: 0
+	width: 100%
+	height: 100%
+	object-fit: cover
+
+	transition: all .4s ease
+.services_item_inner
+	position: relative
+	display: flex
+	flex-direction: column
+	width: 100%
+	padding: 1rem
+	z-index: 2
+
+	transform: translateY(calc(100% - 3.6rem))
+	transition: all .2s ease
+.services_info
+	display: flex
+	flex-direction: column
+	justify-content: flex-end
+	min-height: 54px
+
+
+
+.services_bottom
+	padding-top: 25px
+	display: flex
+	justify-content: space-between
+	border-top: 2px solid #01E5E5
+
+.services_bottom_item
+	width: 30%
+	&:nth-child(2)
+		.services_toggle
+			margin: -36px auto 30px
+	&:last-child
+		.services_toggle
+			margin: -36px 0 30px auto
+	.services_bottom_info
+		display: none
+	&.active
+		.services_toggle
+			background: #000B13
+
+.services_toggle
+	cursor: pointer
+	display: table
+	width: 22px
+	height: 22px
+	border-radius: 50%
+	border: 4px solid #01E5E5
+	background: #01E5E5
+	margin: -36px 0 30px
+
+
+/*info*/
+.info
+	padding: 130px 0
+	background-size: cover
+	background-position: center
+.info_inner
+	display: flex
+	justify-content: space-between
+	&.top
+		justify-content: space-around
+.info_item
+	width: 28%
+.info_images
+	display: flex
+	justify-content: space-between
+	align-items: center
+	position: relative
+	margin: 15px 0
+	&::before
+		position: absolute
+		content: ""
+		height: 2px
+		width: 100%
+		background: #01E5E5
+		top: 50%
+		left: 0
+		transform: translateY(-50%)
+.info_img
+	width: 70px
+	height: 70px
+	border-radius: 50%
+	border: 3px solid #01E5E5
+	display: flex
+	justify-content: center
+	align-items: center
+	position: relative
+	background-color: #000
+/*what*/
+.what
+	padding: 130px 0
+	background: #000B13
+	position: relative
+.what_inner
+	display: flex
+	justify-content: space-between
+	margin: 60px 0
+	position: relative
+	z-index: 1
+	.item
+		.uppertitle
+			padding-right: 0
+		.text
+			padding-right: 70px
+.what_top
+	display: flex
+	justify-content: start
+	position: relative
+	z-index: 1
+	.title
+		margin-right: 45px
+	.uppertext
+		flex: 1
+.what_bottom
+	display: flex
+	justify-content: space-between
+	position: relative
+	z-index: 1
+.what_item
+	width: 24%
+	text-align: center
+	span
+		font-weight: bold
+		font-size: 120px
+		line-height: 150%
+
+		color: #FFFFFF
+	p
+		font-size: 22px
+		line-height: 150%
+
+		color: #FFFFFF
+/*career*/
+.career
+	padding: 60px 0
+.career_inner
+	margin-top: 60px
+	display: flex
+	justify-content: space-between
+	flex-wrap: wrap
+.career_item
+	width: 48%
+	padding: 30px 20px
+	background: #00030F
+	margin-bottom: 40px
+
+	transition: all .2s ease
+	&:hover
+		box-shadow: 0px 4px 55px rgba(255, 255, 255, 0.18)
+	.undertext
+		font-style: italic
+		margin-bottom: 10px
+.career_item_top
+	display: flex
+	justify-content: space-between
+.career_item_bottom	
+	display: flex
+	justify-content: space-between
+	align-items: flex-end
+	position: relative
+	.item_arrow
+		position: initial
+
+/*company*/
+.company
+	padding: 60px 0
+.company_inner
+	margin-top: 60px
+	display: flex
+	justify-content: space-between
+.item
+	width: 32%
+	padding: 30px 20px
+	display: flex
+	flex-direction: column
+	justify-content: flex-end
+	position: relative
+	min-height: 400px
+	background-position: center
+	background-size: cover
+	overflow: hidden
+	transition: all .2s ease
+	.uppertitle
+		padding-right: 70px
+	&::before
+		position: absolute
+		content: ""
+		top: 0
+		left: 0
+		width: 100%
+		height: 100%
+		background: linear-gradient(0deg, #000000 50%, rgba(0, 0, 0, 0) 78.83%)
+		opacity: 0.85 
+		z-index: 1
+	&:hover
+		box-shadow: 0px 4px 55px rgba(255, 255, 255, 0.18)
+		.services_img
+			transform: scale(1.2)
+.item_inner
+	position: relative
+	z-index: 2
+	.undertext
+		font-style: italic
+		margin-bottom: 15px
+.item_arrow
+	position: absolute
+	right: 20px
+	bottom: 30px
+	filter: grayscale(1)
+
+	transition: all .2s ease
+	&:hover
+		filter: grayscale(0)
+
+/*contact*/
+.contact
+	padding: 130px 0
+	background: #000B13
+	position: relative
+	.title
+		margin-bottom: 15px
+		position: relative
+		z-index: 1
+	.text
+		position: relative
+		z-index: 1
+.form_inner
+	margin-top: 50px
+	display: flex
+	justify-content: space-between
+	position: relative
+	z-index: 1
+.form_item
+	width: 49%
+form
+	.title
+		margin-bottom: 50px
+	label
+		display: block
+		font-size: 16px
+		line-height: 130%
+
+		color: #FFFFFF
+		margin-bottom: 10px
+	input
+		outline: none
+		border: 0
+		display: block
+		width: 100%
+		padding: 18px 20px
+		background: #FFFFFF
+		border-radius: 10px
+		font-size: 18px
+		line-height: 130%
+
+		color: #000
+		margin-bottom: 25px
+	textarea
+		outline: none
+		border: 0
+		display: block
+		width: 100%
+		padding: 18px 20px
+		background: #FFFFFF
+		border-radius: 10px
+		font-size: 18px
+		line-height: 130%
+		height: 190px
+		resize: none
+
+	.uppertext
+		margin-bottom: 20px
+	.btn
+		margin-top: 45px
+		position: relative
+		z-index: 1
+		min-width: 200px
+.form_checkbox
+	display: flex
+	justify-content: space-between
+	flex-wrap: wrap
+	max-width: 420px
+	width: 100%
+.checkbox
+	position: relative
+	display: table
+	min-width: 195px
+	input
+		position: absolute
+		top: 0
+		left: 0
+		opacity: 0
+		-webkit-appearance: none
+		&:checked + label::after
+			opacity: 1
+	label
+		position: relative
+		padding-left: 28px
+		margin-bottom: 15px
+		cursor: pointer
+		&::before
+			position: absolute
+			content: ""
+			top: 0
+			left: 0
+			width: 18px
+			height: 18px
+			background: #FFFFFF
+			border-radius: 2px
+		&::after
+			position: absolute
+			content: "\2713"
+			top: 0
+			left: 3px
+			z-index: 1
+			font-weight: bold
+			color: #000B13
+			opacity: 0
+	
+
+/*footer*/
+.footer
+	padding: 40px 0 75px
+.footer_inner
+	display: flex
+	justify-content: space-between
+	align-items: start
+	.btn
+		padding: 10px
+		min-width: 145px
+.footer_social
+	margin-top: 25px
+	display: flex
+	justify-content: space-between
+.footer_nav
+	ul
+		display: flex
+		li
+			margin-right: 50px
+			&:last-child
+				margin-right: 0
+			a
+				font-size: 18px
+				line-height: 130%
+
+				color: #FFFFFF
+				padding-bottom: 5px
+				position: relative
+				&:hover
+					color: #01E5E5
+				&:hover
+					&::before
+						width: 100%
+			ul
+				display: block
+				margin-top: 15px
+				li
+					margin-bottom: 10px
+					margin-right: 0
+					a
+						font-size: 14px
+
+
+@media (max-width: 1180px)
+	.header_inner
+		justify-content: start
+		.btn
+			margin-right: 10px
+	.header_info
+		margin-left: auto	
+	.nav
+		display: none
+	.burger_nav
+		max-width: 320px
+		display: block
+		ul
+			display: block
+			li
+				margin-bottom: 20px
+				padding-right: 20px
+				margin-right: 0
+				a
+					font-size: 18px
+				&.menu-item-has-children 
+					.header_toggler
+						display: block
+				ul
+					padding: 15px 0 0 5px
+					position: initial
+					display: none
+					&.active
+						display: block
+	.main
+		.main_title
+			padding-right: 30px
+	.services_inner
+		flex-wrap: wrap
+	.services_item
+		width: 49%
+		margin-bottom: 30px
+	.what_bottom
+		flex-wrap: wrap
+	.what_item
+		width: 49%
+	.footer_inner
+		flex-wrap: wrap
+	.footer_nav
+		order: 3
+		width: 100%
+		margin-top: 15px
+		ul
+			justify-content: center
+	.burger_title 
+		font-size: 28px
+		line-height: 40px
+
+	.burger_navigation
+		display: block
+	.lang
+		&::before
+			display: none
+@media (max-width: 991px)
+	.main_title 
+		font-size: 36px
+		line-height: 52px
+	.title 
+		font-size: 24px
+		line-height: 32px
+	.services_bottom
+		border-top: 0
+		border-left: 2px solid #01E5E5
+		display: block
+		padding-top: 0
+		padding-left: 25px
+	.services_bottom_item
+		display: block
+		width: 100%
+		position: relative
+		margin-bottom: 30px
+		min-height: 100px
+		&:nth-child(2)
+			.services_toggle
+				top: 50%
+				transform: translateY(-50%)	
+		&:last-child
+			.services_toggle
+				top: initial
+				bottom: -3px
+	.services_toggle
+		margin: 0!important
+		position: absolute
+		top: -3px
+		left: -37px	
+	.uppertitle
+		font-size: 18px
+	.services_item
+		padding: 30px 10px
+	.what
+		padding: 70px 0
+	.what_inner,
+	.company_inner
+		flex-wrap: wrap
+	.item
+		width: 49%
+		margin-bottom: 30px
+	.burger_navigation
+		max-width: 550px
+	.contact
+		padding: 70px 0
+	.info_images
+		display: none
+	.info_inner
+		flex-wrap: wrap
+		&.top
+			justify-content: space-between
+	.info_item
+		width: 49%
+		margin-bottom: 25px
+
+@media (max-width: 767px)
+	.main_right 
+    	width: calc(100% - 45px)
+
+	.main_title 
+		font-size: 28px
+		line-height: 36px
+	.main_left
+		margin-right: 20px
+	.services_item
+		width: 100%
+		min-height: 260px
+	.item
+		min-height: 260px
+		width: 100%
+		margin-bottom: 30px
+	.what_top
+		display: block
+		.title
+			margin-bottom: 25px
+	.what_item 
+		margin-bottom: 15px
+		span
+			font-size: 80px
+			line-height: 90px
+	.career_item
+		width: 100%
+	.footer_nav
+		ul
+			display: block	
+			li
+				margin-right: 0
+				margin-bottom: 20px
+	.burger_title
+		font-size: 22px
+		line-height: 28px
+	.burger_navigation
+		padding: 85px 20px 40px
+	.form_inner
+		flex-wrap: wrap
+	.form_item
+		width: 100%
+		&:last-child
+			order: -1
+			margin-bottom: 20px
+	form
+		textarea
+			height: 120px
+	.main_loop
+		bottom: 25px
+	.info
+		padding: 70px 0
+@media (max-width: 520px)
+	.btn
+		padding: 12px 
+		font-size: 12px
+	.what_item
+		width: 100%
+	.footer
+		.footer_info
+			margin-top: 20px
+			order: 4
+	.header_inner 
+		.btn
+			font-size: 12px
+			margin-right: 5px
+		.logo
+			img
+				width: 90px
+	.main
+		.main_title
+			font-size: 20px
+			line-height: 28px
+	.circle
+		margin-top: 25px
+	.services_bottom_item
+		&:nth-child(2),
+		&:last-child
+			text-align: left
+	.info_item
+		width: 100%
